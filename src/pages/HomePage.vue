@@ -1,12 +1,17 @@
 <template>
+  <div v-for="post in posts" :key="post.id" class="col-md-10">
+    <PostCard :post="post" />
+  </div>
 </template>
 
 
 <script>
-import { onMounted, popScopeId } from 'vue';
+import { computed, onMounted } from 'vue';
 import Pop from '../utils/Pop';
 import { postService } from '../services/PostService.js'
-import { logger } from '../utils/Logger';
+// import { logger } from '../utils/Logger';
+import { AppState } from '../AppState';
+import PostCard from '../components/PostCard.vue';
 
 export default {
 setup(){
@@ -20,11 +25,15 @@ setup(){
   }
 
   onMounted(() => {
-    logger.log('home page mounted')
+    
     getPosts()
   })
-return{}
-}
+return{
+  
+  posts: computed(() => AppState.posts)
+};
+},
+components: { PostCard }
 }
 </script>
 

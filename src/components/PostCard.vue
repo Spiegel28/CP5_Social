@@ -1,0 +1,48 @@
+<template>
+    <div class="card m-2 post-card">
+        <div class="card-body">
+            <div class="d-flex">
+                <img class="creator-picture" :src="post.creator.picture" :alt="null">
+                <div class="">
+                    <h6 class="card-title">{{ post.creator.name }}</h6>
+                    <p class="card-text"><small class="text-muted">{{ post.createdAt.get }}</small></p>
+                </div>
+            </div>
+            <p class="card-text">{{ post.body }}</p>
+        </div>
+        <img v-if="post.imgUrl" :src="post.imgUrl" class="c post-picture">
+        <p class="card-img-bottom"> <i class="mdi mdi-heart">Like Count</i></p>
+    </div>
+</template>
+
+
+<script>
+export default {
+setup(){
+return{}
+},
+
+}
+</script>
+
+
+<style lang="scss" scoped>
+.post-card{
+  background-color: #ffffff; 
+  border-radius: 10px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.creator-picture {
+  height: 6vh;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.post-picture {
+  height: 20vh;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
+</style>
