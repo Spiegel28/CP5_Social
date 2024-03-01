@@ -2,7 +2,10 @@
     <div class="card m-2 post-card">
         <div class="card-body">
             <div class="d-flex">
-                <img class="creator-picture" :src="post.creator.picture" :alt="null">
+                <router-link :to="{name: 'Profile', params: { profileId: post.creatorId}}">
+                <img class="creator-picture selectable" :src="post.creator.picture" :alt="null" role="button">
+                <!-- :title="`Go to ${project.creator.name}'s profile page`"> Is not working -->
+            </router-link>
                 <div class="">
                     <h6 class="card-title">{{ post.creator.name }}</h6>
                     <p class="card-text"><small class="text-muted">{{ post.createdAt.get }}</small></p>
