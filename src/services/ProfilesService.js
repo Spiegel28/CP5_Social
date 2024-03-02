@@ -11,6 +11,8 @@ class ProfilesService {
     logger.log(newProfile)
     AppState.activeProfile = newProfile
   }
+
+  
 }
 
 export const profilesService = new ProfilesService()
