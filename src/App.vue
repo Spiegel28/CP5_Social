@@ -1,7 +1,9 @@
 <template>
   <header>
     <Navbar />
+    <div v-for="commercial in commercials" :key ="commercial.title" class="col-md-10">
     <Commercial />
+  </div>
     <ProfileCard />
   </header>
   <main>
@@ -17,6 +19,7 @@ import { computed, onMounted } from 'vue'
 import { AppState } from './AppState'
 import Navbar from './components/Navbar.vue'
 import Pop from './utils/Pop'
+import { commercialsService } from './services/CommercialsService'
 // import { commercialsService } from '../services/CommercialsService';
 
 export default {

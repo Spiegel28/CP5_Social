@@ -65,14 +65,14 @@ export default {
       }
     }
 
-    async searchPages() {
-      try {
-        logger.log( 'searching for: ', editableSearchQuery.value)
-        await postService.searchPosts(editablesearchQuery.value)
-      } catch (error) {
-        Pop.error(error)
-      }
-    }
+    // async searchPages() {
+    //   try {
+    //     logger.log( 'searching for ', editableSearchQuery.value)
+    //     await postService.searchPosts(editableSearchQuery.value)
+    //   } catch (error) {
+    //     Pop.error(error)
+    //   }
+    // }
   },
   components: { Login }
 }

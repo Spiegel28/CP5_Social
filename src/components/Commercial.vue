@@ -1,7 +1,7 @@
 <template>
     <div class="ad-container">
         <div class="row p-2">
-        <img src="https://via.placeholder.com/250x250" alt="Ad" class="ad-image">
+        <img :src="" :alt="Ad" class="ad-image">
         </div>
     </div>
 </template>
