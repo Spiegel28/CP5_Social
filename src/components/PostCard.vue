@@ -1,22 +1,25 @@
 <template>
-    <div class="card m-2 post-card">
-        <div class="card-body">
-            <div class="d-flex">
-                <router-link :to="{name: 'Profile', params: { profileId: post.creatorId}}">
-                <img class="creator-picture selectable" :src="post.creator.picture" :alt="null" role="button">
-                <!-- :title="`Go to ${project.creator.name}'s profile page`"> Is not working -->
-            </router-link>
-                <div class="">
-                    <h6 class="card-title">{{ post.creator.name }}</h6>
-                    <p class="card-text"><small class="text-muted">{{ post.createdAt.get }}</small></p>
+    <div class="container-fluid ">
+    <div class="row  justify-content-center">
+        <div class="card m-2 post-card col-7">
+            <div class="card-body">
+                <div class="d-flex">
+                    <router-link :to="{name: 'Profile', params: { profileId: post.creatorId}}">
+                        <img class="creator-picture selectable" :src="post.creator.picture" :alt="null" role="button">
+                        <!-- :title="`Go to ${project.creator.name}'s profile page`"> Is not working -->
+                    </router-link>
+                    <div class="">
+                        <h6 class="card-title">{{ post.creator.name }}</h6>
+                        <p class="card-text"><small class="text-muted">{{ post.createdAt }}</small></p>
+                    </div>
                 </div>
+                <p class="card-text">{{ post.body }}</p>
             </div>
-            <p class="card-text">{{ post.body }}</p>
+            <img v-if="post.imgUrl" :src="post.imgUrl" class="c post-picture">
+            <p class="card-img-bottom"> <i class="mdi mdi-heart">Like Count</i></p>
         </div>
-        <img v-if="post.imgUrl" :src="post.imgUrl" class="c post-picture">
-        <p class="card-img-bottom"> <i class="mdi mdi-heart">Like Count</i></p>
     </div>
-    
+</div>
 </template>
 
 

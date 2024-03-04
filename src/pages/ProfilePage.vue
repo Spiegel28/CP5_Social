@@ -8,7 +8,7 @@
                     <p><i class="mdi mdi-linkedin"></i></p>
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title">{{ profile.name }}</h5>
+                    <h5 class="card-title">  {{ profile.name }} <i v-if="profile.graduated" class="mdi mdi-check"></i></h5>
                     <p class="card-text">{{ profile.bio }}</p>
                     <div class="d-flex justify-content-between">
                         <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>

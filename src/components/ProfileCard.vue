@@ -3,7 +3,7 @@
         <img class="creator-picture selectable" src="" alt="Picture here" role="button">
         <p>Summer</p>
         <p>Name</p>
-        <i class="mdi mdi-LinkedIn"></i>
+        <i class="mdi mdi-Linkedin"></i>
         
     </section>
 </template>

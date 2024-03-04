@@ -13,7 +13,9 @@ export const AppState = reactive({
   currentPage:0,
 
   totalPages:0,
-  
+  older: '',
+  newer: '',
+
   /** @type {import('./models/Commercial.js').Commercial[]} */
   commercials: []
 

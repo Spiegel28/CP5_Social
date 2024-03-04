@@ -1,7 +1,8 @@
 <template>
     <div class="ad-container">
         <div class="row p-2">
-        <img :src="" :alt="Ad" class="ad-image">
+        <img :src="commercial.banner" :alt="commercial.title" class="ad-image">
+        <p>AD</p>
         </div>
     </div>
 </template>
@@ -18,10 +19,10 @@ return{}
 
 <style lang="scss" scoped>
 .ad-container {
-    width: 250px; /* Adjust width as needed */
-    height: 250px; /* Adjust height as needed */
+    width: 250px; 
+    height: 250px; 
     // border: 1px solid #131010; /* Add border for visibility */
-    overflow: hidden; /* Hide overflow content */
+    overflow: hidden; 
   }
 
   /* Style the ad image */

@@ -1,11 +1,12 @@
 <template>
+  
   <nav class="navbar navbar-expand-sm navbar-dark bg-dark px-3">
     <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
       <div class="d-flex flex-column align-items-center">
         <p class="d-flex align-items-center">NETWORKING</p>
       </div>
     </router-link>
-    <div class="col-12">
+    <div class="col-10 d-flex justify-content-end">
         <form @submit.prevent="SearchPages()">
           <div class="input-group mb-3">
             <input v-model="editableSearchQuery" required type="text" class="form-control" placeholder="Search" aria-label="Profile"
@@ -37,6 +38,7 @@
       <Login />
     </div>
   </nav>
+  
 </template>
 
 <script>

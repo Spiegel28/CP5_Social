@@ -6,8 +6,11 @@ import { api } from "./AxiosService"
     function _handlePostResponse(response) {
         const newPosts = response.data.posts.map(postPOJO => new Post (postPOJO))
         AppState.posts = newPosts
-        AppState.currentPage = response.data.currentPage
-        AppState.totalPages = response.data.total_pages
+        AppState.currentPage = response.data.page
+        AppState.totalPages = response.data.totalPages
+        AppState.older = response.data.older
+        AppState.newer = response.data.newer
+        console.log('appstate', AppState)
     }
 
 class PostService {
@@ -17,8 +20,6 @@ class PostService {
     async getPosts() {
         const response = await api.get('api/posts')
         logger.log('got posts', response.data)
-        AppState.currentPage = response.data.page 
-        AppState.totalPages = response.data.total_pages
         _handlePostResponse(response)
     }
     async getPostsByCreatorId(profileId) {
@@ -33,10 +34,17 @@ class PostService {
         _handlePostResponse(response)
       }
 
-      async changePage(pageNumber) {
-        const response = await api.get(`api/posts?page=${pageNumber}`)
+      async changePage(Url) {
+        const response = await api.get(Url)
         logger.log('changing page', response.data)
-        _handlePostResponse()
+        _handlePostResponse(response)
+      }
+
+      async createPost(postData) {
+        const response = await api.post('api/posts', postData)
+        logger.log('created post', response.data)
+        const newPost = new Post(response.data)
+        AppState.posts.push(newPost)
       }
 }
 

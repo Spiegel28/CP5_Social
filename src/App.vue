@@ -2,8 +2,9 @@
   <header>
     <Navbar />
     <div v-for="commercial in commercials" :key ="commercial.title" class="col-md-10">
-    <Commercial />
-  </div>
+      <Commercial />
+      <!-- TODO add prop commercial -->
+    </div>
     <ProfileCard />
   </header>
   <main>
@@ -20,7 +21,6 @@ import { AppState } from './AppState'
 import Navbar from './components/Navbar.vue'
 import Pop from './utils/Pop'
 import { commercialsService } from './services/CommercialsService'
-// import { commercialsService } from '../services/CommercialsService';
 
 export default {
   setup() {
