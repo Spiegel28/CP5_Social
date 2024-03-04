@@ -1,6 +1,7 @@
 <template>
   <header>
     <Navbar />
+    <Commercial />
   </header>
   <main>
     <router-view />
@@ -11,12 +12,24 @@
 </template>
 
 <script>
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
 import { AppState } from './AppState'
 import Navbar from './components/Navbar.vue'
+import Pop from './utils/Pop'
 
 export default {
   setup() {
+    async function getCommercials(){
+      try {
+        await commercialsService.getCommercials()
+      } catch (error) {
+        Pop.error(error)
+      }
+    }
+
+    onMounted(()=> {
+      getCommercials()
+    })
     return {
       appState: computed(() => AppState)
     }
@@ -37,4 +50,5 @@ footer {
   place-content: center;
   height: 32px;
 }
+
 </style>
