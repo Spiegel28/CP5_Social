@@ -5,6 +5,17 @@
         <p class="d-flex align-items-center">NETWORKING</p>
       </div>
     </router-link>
+    <div class="col-12">
+        <form @submit.prevent="SearchPages()">
+          <div class="input-group mb-3">
+            <input v-model="editableSearchQuery" required type="text" class="form-control" placeholder="Search" aria-label="Profile"
+              aria-describedby="button-addon2">
+            <button class="btn btn-outline-light" type="submit" id="button-addon2">
+              Search <i class="mdi mdi-magnify"></i>
+            </button>
+          </div>
+        </form>
+      </div>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
       aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -32,9 +43,11 @@
 import { onMounted, ref } from 'vue';
 import { loadState, saveState } from '../utils/Store.js';
 import Login from './Login.vue';
+import Pop from '../utils/Pop';
+import { logger } from '../utils/Logger';
 export default {
   setup() {
-
+    const editableSearchQuery = ref('')
     const theme = ref(loadState('theme') || 'light')
 
     onMounted(() => {
@@ -42,11 +55,22 @@ export default {
     })
 
     return {
+      editableSearchQuery,
+
       theme,
       toggleTheme() {
         theme.value = theme.value == 'light' ? 'dark' : 'light'
         document.documentElement.setAttribute('data-bs-theme', theme.value)
         saveState('theme', theme.value)
+      }
+    }
+
+    async searchPages() {
+      try {
+        logger.log( 'searching for: ', editableSearchQuery.value)
+        await postService.searchPosts(editablesearchQuery.value)
+      } catch (error) {
+        Pop.error(error)
       }
     }
   },

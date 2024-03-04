@@ -2,6 +2,7 @@
   <header>
     <Navbar />
     <Commercial />
+    <ProfileCard />
   </header>
   <main>
     <router-view />
@@ -16,6 +17,7 @@ import { computed, onMounted } from 'vue'
 import { AppState } from './AppState'
 import Navbar from './components/Navbar.vue'
 import Pop from './utils/Pop'
+// import { commercialsService } from '../services/CommercialsService';
 
 export default {
   setup() {

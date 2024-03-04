@@ -16,6 +16,7 @@
         <img v-if="post.imgUrl" :src="post.imgUrl" class="c post-picture">
         <p class="card-img-bottom"> <i class="mdi mdi-heart">Like Count</i></p>
     </div>
+    
 </template>
 
 

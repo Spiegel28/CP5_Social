@@ -1,5 +1,5 @@
 export class Commercial{
-constructor(){
-    
+constructor(data){
+
 }
 }

@@ -2,6 +2,11 @@
   <div v-for="post in posts" :key="post.id" class="col-md-10">
     <PostCard :post="post" />
   </div>
+  <div class="col-12 d-flex align-items-center my-2">
+    <button @click="changePage(currentPage - 1)" class="btn btn-outline-dark" :disabled="currentPage == 1">Previous</button>
+    <p class="mb-0 mx-3 fs-4">Page {{ currentPage }} of {{ totalPages }}</p>
+    <button @click="changePage(currentPage +1)" class="btn btn-outline-dark"  >Next</button>
+  </div>
 </template>
 
 
@@ -30,7 +35,19 @@ setup(){
   })
 return{
   
-  posts: computed(() => AppState.posts)
+  posts: computed(() => AppState.posts),
+  currentPage: computed(() => AppState.currentPage),
+  totalPages: computed (()=> AppState.totalPages),
+
+  async changePage(pageNumber) {
+    try {
+      
+        await postService.changePage(pageNumber)
+      
+    } catch (error) {
+      Pop.error(error)
+    }
+  }
 };
 },
 components: { PostCard }
