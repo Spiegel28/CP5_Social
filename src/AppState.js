@@ -11,7 +11,7 @@ export const AppState = reactive({
   activeProfile: null,
 
   currentPage:0,
-
+likes:0,
   totalPages:0,
   older: '',
   newer: '',

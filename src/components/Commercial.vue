@@ -1,8 +1,8 @@
 <template>
     <div class="ad-container">
-        <div class="row p-2">
+        <div class="row p-2 card">
         <img :src="commercial.banner" :alt="commercial.title" class="ad-image">
-        <p>AD</p>
+        
         </div>
     </div>
 </template>
@@ -10,6 +10,9 @@
 
 <script>
 export default {
+    props: {
+        commercial: Object 
+    },
 setup(){
 return{}
 }

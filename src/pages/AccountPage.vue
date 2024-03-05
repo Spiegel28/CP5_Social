@@ -34,6 +34,23 @@
             <label for="graduated">Graduated?</label>
             <input v-model="editableAccountData.graduated" type="checkbox" id="graduated">
           </div>
+          <div class="mb-3">
+            <label for="class">Attending Class</label>
+            <input v-model="editableAccountData.class" class="w-100" type="text" id="class">
+          </div>
+          <div class="mb-3">
+            <label for="linkedin">LinkedIn</label>
+            <input v-model="editableAccountData.linkedin" class="w-100" type="text" id="linkedin">
+          </div>
+          <div class="mb-3">
+            <label for="github">Github</label>
+            <input v-model="editableAccountData.github" class="w-100" type="text" id="github">
+          </div>
+          <div class="mb-3">
+            <label for="resume">Resume</label>
+            <input v-model="editableAccountData.resume" class="w-100" type="text" id="coverImg">
+          </div>
+
 
           <button class="btn btn-success">Update Account</button>
 
@@ -58,7 +75,8 @@ export default {
     return {
       editableAccountData,
       account,
-      
+      older: computed (()=> AppState.older),
+  newer: computed (()=> AppState.newer),
 
       async updateAccount() {
         try {

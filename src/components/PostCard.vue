@@ -16,7 +16,7 @@
                 <p class="card-text">{{ post.body }}</p>
             </div>
             <img v-if="post.imgUrl" :src="post.imgUrl" class="c post-picture">
-            <p class="card-img-bottom"> <i class="mdi mdi-heart">Like Count</i></p>
+            <p class="card-img-bottom"> <button @click="addLike()" class="mdi mdi-heart"></button></p>
         </div>
     </div>
 </div>
@@ -30,6 +30,9 @@ export default {
         post: {type: Post , required: true}
     },
 setup(){
+    function addLike() {
+        this.likes++
+    }
 return{
 
 }

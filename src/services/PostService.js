@@ -10,7 +10,7 @@ import { api } from "./AxiosService"
         AppState.totalPages = response.data.totalPages
         AppState.older = response.data.older
         AppState.newer = response.data.newer
-        console.log('appstate', AppState)
+        // console.log('appstate', AppState)
     }
 
 class PostService {

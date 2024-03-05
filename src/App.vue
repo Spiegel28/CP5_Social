@@ -2,10 +2,10 @@
   <header>
     <Navbar />
     <div v-for="commercial in commercials" :key ="commercial.title" class="col-md-10">
-      <Commercial />
+      <Commercial :commercial = "commercial" />
       <!-- TODO add prop commercial -->
     </div>
-    <ProfileCard />
+    <!-- <ProfileCard /> -->
   </header>
   <main>
     <router-view />
