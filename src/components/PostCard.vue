@@ -30,9 +30,9 @@ export default {
         post: {type: Post , required: true}
     },
 setup(){
-    function addLike() {
-        this.likes++
-    }
+    // function addLike() {
+    //     this.likes++
+    // }
 return{
 
 }

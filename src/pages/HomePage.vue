@@ -1,5 +1,5 @@
 <template>
-  <PostForm />
+  <!-- <PostForm /> -->
   <div v-for="post in posts" :key="post.id" class="col-md-10">
     <PostCard :post="post" />
   </div>

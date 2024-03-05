@@ -2,7 +2,7 @@
   <header>
     <Navbar />
     <div v-for="commercial in commercials" :key ="commercial.title" class="col-md-10">
-      <Commercial :commercial = "commercial" />
+      <Commercial :commercial = "commercials" />
       <!-- TODO add prop commercial -->
     </div>
     <!-- <ProfileCard /> -->
@@ -27,6 +27,7 @@ export default {
     async function getCommercials(){
       try {
         await commercialsService.getCommercials()
+        console.log(AppState.commercials)
       } catch (error) {
         Pop.error(error)
       }
